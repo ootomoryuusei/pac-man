@@ -3,13 +3,14 @@
 #include"Engine/Input.h"
 #include"Engine/Debug.h"
 #include"Stage.h"
+#include"Gauge.h"
 
 namespace
 {
 	const float PLAYER_MOVE_SPEED{ 0.05 };
 }
 Player::Player(GameObject* parent)
-	:GameObject(parent, "Player"), hModel_(-1), speed_(PLAYER_MOVE_SPEED), pStage_(nullptr), aniframe_(10)
+	:GameObject(parent, "Player"), hModel_(-1), speed_(PLAYER_MOVE_SPEED), pStage_(nullptr), aniframe_(10),hpCrr_(100),hpMax_(100)
 {
 }
 
@@ -55,6 +56,14 @@ void Player::Update()
 	{
 		pos = posTmp;
 	}
+	else
+	{
+		hpCrr_ = hpCrr_ - 2;
+		if (hpCrr_ < 0)
+		{
+			hpCrr_ = 0;
+		}
+	}
 	/*XMStoreFloat3(&(transform_.position_), pos);*/
 	if (!XMVector3Equal(move, XMVectorZero()))
 	{
@@ -82,6 +91,8 @@ void Player::Update()
 		}*/
 			transform_.rotate_.y = XMConvertToDegrees(-angle);
 	}
+	Gauge* pGauge_ = (Gauge*)FindObject("Gauge");
+	pGauge_->SetGaugeVal(hpCrr_, hpMax_);
 }
 
 void Player::Draw()

@@ -7,6 +7,8 @@ class Player : public GameObject
 {
 	int hModel_;
 	float speed_;
+	int hpCrr_;
+	int hpMax_;
 	float aniframe_;
 	Stage* pStage_;
 public:
