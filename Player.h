@@ -1,11 +1,14 @@
 #pragma once
 #include "Engine/GameObject.h"
+#include"Stage.h"
 
 //テストシーンを管理するクラス
 class Player : public GameObject
 {
 	int hModel_;
 	float speed_;
+	float aniframe_;
+	Stage* pStage_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）

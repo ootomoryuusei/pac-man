@@ -4,11 +4,18 @@
 
 using std::vector;
 
+enum STAGE_OBJ
+{
+	FLOOR,
+	WALL,
+};
 //テストシーンを管理するクラス
 class Stage : public GameObject
 {
 	int hFloor_;
 	int hWall_;
+	int stageWidth_;
+	int	stageHeight_;
 	vector<vector<int>> stageData_;
 public:
 	//コンストラクタ
@@ -26,4 +33,9 @@ public:
 
 	//開放
 	void Release() override;
+
+	bool IsWall(int _x, int _y);
+
+	int GetStageWidth() { return stageWidth_; }
+	int GetStageHight() { return stageHeight_; }
 };
