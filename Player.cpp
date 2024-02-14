@@ -16,7 +16,7 @@ Player::Player(GameObject* parent)
 
 void Player::Initialize()
 {
-	hModel_ = Model::Load("Model\\Player.fbx");
+	hModel_ = Model::Load("Model\\player.fbx");
 	assert(hModel_ >= 0);
 	transform_.position_.x = 0.5;
 	transform_.position_.z = 1.5;
@@ -51,7 +51,7 @@ void Player::Update()
 
 	int tx, ty;
 	tx = (int)(XMVectorGetX(posTmp) + 1.0f);
-	ty = pStage_->GetStageWidth() - (int)(XMVectorGetZ(posTmp) + 1.0f);
+	ty = pStage_->GetStageWidth() - (int)(XMVectorGetZ(posTmp) + 1.5f);
 	if (!(pStage_->IsWall(tx, ty)))
 	{
 		pos = posTmp;

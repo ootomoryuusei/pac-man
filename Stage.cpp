@@ -74,7 +74,7 @@ void Stage::Draw()
 	{
 		for (int x = 0; x < stageWidth_; x++)
 		{
-			floorTrans.position_ = { (float)x,0,(float)(14 - z) };
+			floorTrans.position_ = { (float)x,0,(float)(14 - z)};
 			if(stageData_[z][x] == 1)
 			{
 			  /* floorTrans.position_ = { -6.5f+1.0f*(float)x,0,-5+1.0f*(float)y };*/

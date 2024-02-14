@@ -23,6 +23,7 @@ void Gauge::Update()
 void Gauge::Draw()
 {
 	Transform trans = transform_;
+	trans.position_.x = -0.065f;
 	trans.scale_.x = (float)gaugeCrrVal_/ (float)gaugeMaxVal_;
 	Image::SetTransform(hGaugeBar_, trans);
 	Image::Draw(hGaugeBar_);
