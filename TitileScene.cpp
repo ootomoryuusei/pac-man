@@ -1,5 +1,7 @@
 #include "TitleScene.h"
 #include"Engine/Image.h"
+#include"Engine/SceneManager.h"
+#include"Engine/Input.h"
 
 //コンストラクタ
 TitleScene::TitleScene(GameObject * parent)
@@ -17,6 +19,11 @@ void TitleScene::Initialize()
 //更新
 void TitleScene::Update()
 {
+	if (Input::IsMouseButtonUp(0))
+	{
+		SceneManager* tSM = (SceneManager*)(FindObject("SceneManager"));
+		tSM->ChangeScene(SCENE_ID_PLAY);
+	}
 }
 
 //描画

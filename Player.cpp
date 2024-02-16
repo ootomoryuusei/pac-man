@@ -50,8 +50,8 @@ void Player::Update()
 	posTmp = pos + speed_ * move;
 
 	int tx, ty;
-	tx = (int)(XMVectorGetX(posTmp) + 1.0f);
-	ty = pStage_->GetStageWidth() - (int)(XMVectorGetZ(posTmp) + 1.5f);
+	tx = (int)(XMVectorGetX(posTmp)+1.0f);
+	ty = pStage_->GetStageWidth() - (int)(XMVectorGetZ(posTmp)+1.5f);
 	if (!(pStage_->IsWall(tx, ty)))
 	{
 		pos = posTmp;

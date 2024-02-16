@@ -20,6 +20,7 @@ void PlayScene::Initialize()
 
 void PlayScene::Update()
 {
+	
 }
 
 void PlayScene::Draw()

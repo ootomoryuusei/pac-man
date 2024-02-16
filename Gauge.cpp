@@ -1,5 +1,7 @@
 #include "Gauge.h"
 #include"Engine/Image.h"
+#include"Engine/Input.h"
+#include"Engine/SceneManager.h"
 
 Gauge::Gauge(GameObject* parent)
 	:GameObject(parent,"Gauge"),hGaugeBar_(-1),hGaugeFrame_(-1),gaugeCrrVal_(100),gaugeMaxVal_(100)
@@ -18,6 +20,11 @@ void Gauge::Initialize()
 
 void Gauge::Update()
 {
+	if (gaugeCrrVal_  <= 0)
+	{
+		SceneManager* pSM = (SceneManager*)(FindObject("SceneManager"));
+		pSM->ChangeScene(SCENE_ID_GAMEOVER);
+	}
 }
 
 void Gauge::Draw()
